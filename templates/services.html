@@ -1,0 +1,468 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p></p>
+<div class="jumbotron shadow-lg p-3 mb-5 bg-white rounded">
+  <div class="center-text">
+    <div class="border-test">
+      <br>
+      <br>
+      <br>
+      <h6><i>Hire a Sommelier.</i></h6>
+      <div class="container">
+        <hr style="height:1px;border-width:0;color:gray;background-color:black;opacity:0.7;">
+        <div class="row">
+          <div class="col vert-center">
+            <p class="light-text"><u>Private Dinner</u></p>
+            <p class="light-text">Take the responsibility of wine selection and service out of your hands. We assist you to curate wine pairings specifically to your special evening menu selections. We provide full dinner service to engage every guest in the culinary and fermented beverage adventure.</p>
+            <br>
+            <p class="light-text"><u>Curated Wine Tasting</u></p>
+            <p class="light-text">We offer the opportunity to explore why a wine tastes the way it does by breaking down it’s elements, natural and manipulated, to create understanding and confidence when talking wine. We’ll discuss the region it comes from, winemaking styles, soils, climatic impact and other variables that make each producer's wine unique. <br><br>We will answer familiar questions such as, why some wines are more or less drier or the influence of oak on certain varieties. We talk about reading the label, and why they are made so confusingly on some and other so simple. Exercises like blind tastings to highlight different examples helping you understand the myriad complexities of the same grape from different places. Food accompaniments available for the tasting!</p>
+          </div>
+          <div class="col vert-center">
+            <img src="static/pics/ChampBubbles.jpg" alt="" class="img-fluid ben">
+          </div>
+        </div>
+        <br>
+        <br>
+
+        <!-- Hire Somm Button trigger modal -->
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+          Hire a Sommelier
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Inquiry Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="#" method="post">
+                  <div class="row">
+                    <div class="col">
+                      {{hiresommform.hidden_tag()}}
+                      {{hiresommform.first_name(placeholder="First Name")}}<br>
+                      <p></p>
+                      {{hiresommform.last_name(placeholder="Last Name")}}<br>
+                      <p></p>
+                      {{hiresommform.zip(placeholder="Zip Code")}}<br>
+                      <p></p>
+                      {{hiresommform.email(placeholder="Email")}}<br>
+                      <p></p>
+                      {{hiresommform.phone(placeholder="Phone Number")}}<br>
+                    </div>
+                    <div class="col">
+                      <div class="my-select-boxes">
+                        <p>Select all that apply: </p>
+                        <div class="form-check">
+                          <p>{{hiresommform.private_dinner()}} {{hiresommform.private_dinner.label(class="form-check-label")}}</p>
+                        </div>
+                        <div class="form-check">
+                          <p>{{hiresommform.in_person_somm()}} {{hiresommform.in_person_somm.label(class="form-check-label")}}</p>
+                        </div>
+                        <div class="form-check">
+                          <p>{{hiresommform.online_somm()}} {{hiresommform.online_somm.label(class="form-check-label")}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    {{hiresommform.comments(class="form-control", placeholder="Comments", style="height:150px;")}}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    {{hiresommform.submit(class="btn btn-primary")}}
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br id="exactlocation1">
+        <h6><i>Wine Consulting.</i></h6>
+        <div class="container">
+          <hr style="height:1px;border-width:0;color:gray;background-color:black;opacity:0.7;">
+        </div>
+        <div class="row">
+          <div class="col vert-center">
+            <img src="static/pics/somecasks.jpg" alt="" class="img-fluid ben2">
+          </div>
+          <div class="col vert-center">
+            <p class="light-text"><u>Cellar Management</u></p>
+            <p class="light-text">Wine fridge or a dedicated cellar? We’ll create trackable, monthly inventory records to keep your cellar alive and profitable in case you don't drink it all. We provide recommendations on what to buy and what is for drinking now and later.</p>
+
+            <div class="center-text">
+              <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#tableModal">
+                Personal Inventory Example
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="tableModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content">
+                    <!-- <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div> -->
+                    <div class="modal-body">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">
+                              Aquisition Date
+                            </th>
+                            <th scope="col">
+                              Starting Quantity
+                            </th>
+                            <th scope="col">
+                              Vintage
+                            </th>
+                            <th scope="col">
+                              Producer
+                            </th>
+                            <th scope="col">
+                              Country
+                            </th>
+                            <th scope="col">
+                              Region
+                            </th>
+                            <th scope="col">
+                              Bottle $
+                            </th>
+                            <th scope="col">
+                              Lot $
+                            </th>
+                            <th scope="col">
+                              Advisement
+                            </th>
+                          </tr>
+                        </thead>
+                        <tr>
+                          <td></td>
+                          <td>6</td>
+                          <td>2012</td>
+                          <td>Cain Five</td>
+                          <td>USA</td>
+                          <td>Napa Valley</td>
+                          <td>$125.00</td>
+                          <td>$750.00</td>
+                          <td>Hold/Drink but decant</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>12</td>
+                          <td>2017</td>
+                          <td>Staglin</td>
+                          <td>USA</td>
+                          <td>Napa Valley</td>
+                          <td>$51.80</td>
+                          <td>$621.60</td>
+                          <td>Drink</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>6</td>
+                          <td>2016</td>
+                          <td>Domaine de Montille</td>
+                          <td>France</td>
+                          <td>Burgundy</td>
+                          <td>$195.00</td>
+                          <td>$1,170.00</td>
+                          <td>Hold</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>3</td>
+                          <td>2017</td>
+                          <td>Sylvain Pataille</td>
+                          <td>France</td>
+                          <td>Burgundy</td>
+                          <td>$34.00</td>
+                          <td>$102.00</td>
+                          <td>Drink 1-4 years</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>2</td>
+                          <td>2016</td>
+                          <td>Arnot Robert</td>
+                          <td>USA</td>
+                          <td>Sonoma</td>
+                          <td>$29.80</td>
+                          <td>$59.60</td>
+                          <td>Drink, hold up to 2025</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>3</td>
+                          <td>2016</td>
+                          <td>Camille Giroud</td>
+                          <td>France</td>
+                          <td>St. Romain</td>
+                          <td>$26.80</td>
+                          <td>$80.40</td>
+                          <td>Drink, hold to 2025</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>3</td>
+                          <td>2002</td>
+                          <td>Fevre, Chablis</td>
+                          <td>France</td>
+                          <td>Grenouilles</td>
+                          <td>$60.75</td>
+                          <td>$182.25</td>
+                          <td>Drink, may be past</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <p class="light-text"><u>Rare and Vintage</u></p>
+            <p class="light-text">In search of something rare? Perhaps a specific vintage for the birthday? An anniversary? A business deal? Whatever the occasion we do our best to search for a region and vintage that has a wine in prime drinking or aging condition.</p>
+            <br>
+            <p class="light-text"><u>Curate a Case</u></p>
+            <p class="light-text">If you want to lift the decision making weight of which bottle to select and wonder if you are going to even like it, then allow us to lift it for you. This hand selection from Benjamin is offered in 6 or 12 bottle themed cases. His three unique options are detailed below.</p>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col">
+            <img src="static/pics/corkscrew.png" alt="" class="img-fluid">
+          </div>
+          <div class="col">
+            <img src="static/pics/amphora.png" alt="" class="img-fluid">
+          </div>
+          <div class="col">
+            <img src="static/pics/pouring-chalice.png" alt="" class="img-fluid">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p><i>The Nightly</i></p>
+          </div>
+          <div class="col">
+            <p><i>The Now and Later</i></p>
+          </div>
+          <div class="col">
+            <p><i>The Sunken Case</i></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="light-text">Your go-to bottles; this case is full of wines you’re not hesitant to crack open on a rough wednesday night. The Nightly consists of wines full of value, approachability, and familiar enjoyment</p>
+          </div>
+          <div class="col">
+            <p class="light-text">The Now and Then is a mix between drink-now wines and wines that you may want to share with a significant friend or keep for a special occasion. This case is a great example to compare the quality of unique terroirs to that of their more accessible counterparts.</p>
+          </div>
+          <div class="col">
+            <p class="light-text">The Sunken Case involves wines that have some rarity, age, or top tier status to really understand specific terroirs, regions, producers and vintages. This case will involve a more in-depth consultation to determine the wines included and their focus. This case is for serious wine gazing!</p>
+          </div>
+        </div>
+        <br>
+        <br>
+
+        <!-- Wine Consult Button -->
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#wineconsult">
+          Inquire
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="wineconsult" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Inquiry Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="#" method="post">
+                  <div class="row">
+                    <div class="col">
+                      {{wineconsultform.hidden_tag()}}
+                      {{wineconsultform.first_name(placeholder="First Name")}}<br>
+                      <p></p>
+                      {{wineconsultform.last_name(placeholder="Last Name")}}<br>
+                      <p></p>
+                      {{wineconsultform.zip(placeholder="Zip Code")}}<br>
+                      <p></p>
+                      {{wineconsultform.email(placeholder="Email")}}<br>
+                      <p></p>
+                      {{wineconsultform.phone(placeholder="Phone Number")}}<br>
+                    </div>
+                    <div class="col">
+                      <div class="my-select-boxes">
+                        <p>Select all that apply: </p>
+                        <div class="form-check">
+                          <p>{{wineconsultform.cellar_mgmt()}} {{wineconsultform.cellar_mgmt.label(class="form-check-label")}}</p>
+                        </div>
+                        <div class="form-check">
+                          <p>{{wineconsultform.rare_and_vintage()}} {{wineconsultform.rare_and_vintage.label(class="form-check-label")}}</p>
+                        </div>
+                        <div class="form-check">
+                          <p>{{wineconsultform.curate_case()}} {{wineconsultform.curate_case.label(class="form-check-label")}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    {{wineconsultform.comments(class="form-control", placeholder="Comments", style="height:150px;")}}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    {{wineconsultform.submit(class="btn btn-primary")}}
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br id="exactlocation">
+        <h6><i>Business to Business Consulting.</i></h6>
+        <div class="container">
+          <hr style="height:1px;border-width:0;color:gray;background-color:black;opacity:0.7;">
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="center-text">
+              <img src="static/pics/oldbottles.jpg" alt="" class="img-fuid ben2">
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <p class="light-text"><u>Retail</u></p>
+          </div>
+          <div class="col">
+            <p class="light-text"><u>Hotels and Restaurants</u></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="light-text">Do you have a wine shop but don't know what is in fashion today and who the up and coming producers are? Do the sales representatives tell you to get this, or get that? We will discuss current inventory, product placement, and future purchasing goals for the program. We offer entry level education for staff, or assist with silent marketing in the store for the products and how to suggestively sell and understand guests’ wine vocabulary to create returning guests!</p>
+          </div>
+          <div class="col">
+            <p class="light-text">A part-time sommelier is needed for most wine programs, but a full-time sommelier may not be economical. Recent sales may not be reason for an upgrade but hiring Wellington Wine Consultants can help elevate the guests’ experience and enhance your venue into a destination by close margin analysis, planning and educating the staff.<br>
+            Distributors can take advantage of restaurants with their sales agendas making it difficult for staff in this high turnover business. Wellington Wine Consultants is a great outsourcing option to analyze distributors offers and construct current market wines inciting a profitable and engaging wine program. Contracting out to a consultant creates consistency leading to increased sales. We offer a one time contract to consult the list and educate the staff or through a monthly retainer contract.</p>
+          </div>
+        </div>
+        <br>
+
+        <!-- Business Consult Button -->
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#businessconsult">
+          Inquire
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="businessconsult" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Inquiry Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="#" method="post">
+                  <div class="row">
+                    <div class="col">
+                      {{businessconsultform.hidden_tag()}}
+                      {{businessconsultform.first_name(placeholder="First Name")}}<br>
+                      <p></p>
+                      {{businessconsultform.last_name(placeholder="Last Name")}}<br>
+                      <p></p>
+                      {{businessconsultform.zip(placeholder="Zip Code")}}<br>
+                      <p></p>
+                      {{businessconsultform.email(placeholder="Email")}}<br>
+                      <p></p>
+                      {{businessconsultform.phone(placeholder="Phone Number")}}<br>
+                    </div>
+                    <div class="col">
+                      <div class="my-select-boxes">
+                        <p>Select all that apply: </p>
+                        <div class="form-check">
+                          <p>{{businessconsultform.retail()}} {{businessconsultform.retail.label(class="form-check-label")}}</p>
+                        </div>
+                        <div class="form-check">
+                          <p>{{businessconsultform.hotel_rest()}} {{businessconsultform.hotel_rest.label(class="form-check-label")}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    {{businessconsultform.comments(class="form-control", placeholder="Comments", style="height:150px;")}}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    {{businessconsultform.submit(class="btn btn-primary")}}
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="light-text">
+        <p><i>WellingtonWineConuslting@gmail.com</i></p>
+        <p><i>(1) 561-315-2189</i></p>
+        <p><i>Wellington, Florida 33449</i></p>
+        <p>CopyRight 2020 All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
